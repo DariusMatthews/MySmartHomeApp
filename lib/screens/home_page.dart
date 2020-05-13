@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_smart_home/style.dart';
+import 'package:my_smart_home/widgets/HomeShortBtns.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
             // header row container
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.only(top: 17),
+              margin: const EdgeInsets.only(top: 12),
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,8 +52,46 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Wrap(),
+            SizedBox(height: 30),
+            // Home shortcut buttons
+            Wrap(
+              spacing: 20,
+              runSpacing: 25,
+              children: <Widget>[
+                HomeShortBtns(
+                  btnTitle: 'Light',
+                  icon: Icon(
+                    Icons.lightbulb_outline,
+                    color: Colors.white,
+                  ),
+                  iconColor: yellow,
+                ),
+                HomeShortBtns(
+                  btnTitle: 'Media',
+                  icon: Icon(
+                    Icons.play_circle_filled,
+                    color: Colors.white,
+                  ),
+                  iconColor: purpleBlue,
+                ),
+                HomeShortBtns(
+                  btnTitle: 'Camera',
+                  icon: Icon(
+                    Icons.videocam,
+                    color: Colors.white,
+                  ),
+                  iconColor: peach,
+                ),
+                HomeShortBtns(
+                  btnTitle: 'Wi-Fi',
+                  icon: Icon(
+                    Icons.wifi,
+                    color: Colors.white,
+                  ),
+                  iconColor: green,
+                ),
+              ],
+            ),
           ],
         ),
       ),
