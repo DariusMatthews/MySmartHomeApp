@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_smart_home/style.dart';
-import 'package:my_smart_home/widgets/HomeShortBtns.dart';
+import 'package:my_smart_home/widgets/home_page_btn.dart';
+import 'package:my_smart_home/widgets/device_btn.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -91,6 +92,64 @@ class HomePage extends StatelessWidget {
                   iconColor: green,
                 ),
               ],
+            ),
+            SizedBox(height: 60),
+            // subtitle container
+            Container(
+              width: double.infinity,
+              height: 75,
+              padding: const EdgeInsets.only(left: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Living Room',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.w600,
+                      color: darkBlue,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    '2 devices',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      color: greyBlue,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            // device button container
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                children: <Widget>[
+                  DeviceBtn(
+                    btnText: 'Netgear \nWiFi Router',
+                    deviceIcon: Icon(
+                      Icons.router,
+                      color: lightPurple,
+                      size: 85,
+                    ),
+                    tapEvent: () {},
+                  ),
+                  Spacer(),
+                  DeviceBtn(
+                    btnText: 'Living Room \nSpeaker',
+                    deviceIcon: Icon(
+                      Icons.speaker,
+                      color: deepBlue,
+                      size: 75,
+                    ),
+                    tapEvent: () {},
+                  ),
+                ],
+              ),
             ),
           ],
         ),
