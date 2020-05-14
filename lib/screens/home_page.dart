@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_smart_home/style.dart';
 import 'package:my_smart_home/widgets/home_page_btn.dart';
 import 'package:my_smart_home/widgets/device_btn.dart';
+import 'package:my_smart_home/screens/router_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -136,7 +137,14 @@ class HomePage extends StatelessWidget {
                       color: lightPurple,
                       size: 85,
                     ),
-                    tapEvent: () {},
+                    tapEvent: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RouterPage(),
+                        ),
+                      );
+                    },
                   ),
                   Spacer(),
                   DeviceBtn(
@@ -152,6 +160,51 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      // floating button
+      floatingActionButton: Container(
+        width: 70,
+        child: FittedBox(
+          child: FloatingActionButton(
+            backgroundColor: purpleBlue,
+            child: Icon(
+              Icons.keyboard_voice,
+              color: Colors.white,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // bottom navbar
+      bottomNavigationBar: BottomAppBar(
+        elevation: 30,
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 15.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 50.0),
+                child: Icon(
+                  Icons.home,
+                  color: purpleBlue,
+                  size: 30,
+                ),
+              ),
+              Icon(
+                Icons.settings,
+                color: greyBlue,
+                size: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );
