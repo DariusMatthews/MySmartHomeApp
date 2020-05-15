@@ -4,12 +4,14 @@ class InternetSpeed extends StatelessWidget {
   final String name;
   final String speed;
   final Color bgColor;
+  final IconData arrow;
 
   const InternetSpeed({
     Key key,
     this.name,
     this.speed,
     this.bgColor,
+    this.arrow,
   }) : super(key: key);
 
   @override
@@ -66,7 +68,7 @@ class InternetSpeed extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Icon(
-                    Icons.arrow_downward,
+                    arrow,
                     color: bgColor,
                   ),
                 )

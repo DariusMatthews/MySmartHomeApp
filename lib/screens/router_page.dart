@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_smart_home/style.dart';
 import 'package:my_smart_home/widgets/internet_speed_card.dart';
+import 'package:my_smart_home/widgets/device.dart';
 
 class RouterPage extends StatelessWidget {
   @override
@@ -79,6 +80,7 @@ class RouterPage extends StatelessWidget {
                     name: 'Download',
                     bgColor: skyBlue,
                     speed: '69',
+                    arrow: Icons.arrow_downward,
                   ),
                   SizedBox(width: 23),
                   // Upload Speed Card
@@ -86,6 +88,7 @@ class RouterPage extends StatelessWidget {
                     name: 'Upload',
                     bgColor: purple,
                     speed: '12',
+                    arrow: Icons.arrow_upward,
                   ),
                 ],
               ),
@@ -108,37 +111,82 @@ class RouterPage extends StatelessWidget {
             ),
             SizedBox(height: 30),
             // Device Descriptions
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 52,
-                    height: 52,
-                    decoration: BoxDecoration(
-                      color: lightBlue,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Icon(
-                      Icons.phone_iphone,
-                      color: deepBlue,
-                      size: 30,
-                    ),
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        'My iPhone',
-                      ),
-                      Text(
-                        '5GHz, 2h ago',
-                      ),
-                    ],
-                  ),
-                ],
+            Device(
+              deviceIcon: Icon(
+                Icons.phone_iphone,
+                color: deepBlue,
+                size: 30,
               ),
+              deviceTitle: 'My iPhone',
+              deviceSpeed: '5GHz',
+              lastUsed: '2h ago',
+              uploadSpeed: '6Mbps',
+            ),
+            SizedBox(height: 15),
+            HorizontalRule(),
+            SizedBox(height: 15),
+            Device(
+              deviceIcon: Icon(
+                Icons.phone_iphone,
+                color: deepBlue,
+                size: 30,
+              ),
+              deviceTitle: 'Emi\'s iPhone',
+              deviceSpeed: '5GHz',
+              lastUsed: '4h ago',
+              uploadSpeed: '4Mbps',
+            ),
+            SizedBox(height: 15),
+            HorizontalRule(),
+            SizedBox(height: 15),
+            Device(
+              deviceIcon: Icon(
+                Icons.laptop_mac,
+                color: deepBlue,
+                size: 30,
+              ),
+              deviceTitle: 'MacBook',
+              deviceSpeed: '2.4GHz',
+              lastUsed: '7h ago',
+              uploadSpeed: '7Mbps',
+            ),
+            SizedBox(height: 15),
+            HorizontalRule(),
+            SizedBox(height: 15),
+            Device(
+              deviceIcon: Icon(
+                Icons.desktop_mac,
+                color: deepBlue,
+                size: 30,
+              ),
+              deviceTitle: 'iMac',
+              deviceSpeed: '2.4GHz',
+              lastUsed: '03/17 16:20',
+              uploadSpeed: '9Mbps',
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HorizontalRule extends StatelessWidget {
+  const HorizontalRule({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 67.5),
+      child: Container(
+        width: 289,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: lightGrey,
+            width: .8,
+          ),
         ),
       ),
     );
